@@ -1,0 +1,20 @@
+{% extends 'showroom/base.html' %}
+{% block title %} HK Vehicles {% endblock %} 
+{% block content %}
+<h1>Our Team</h1>
+
+{% if staff %}
+<ul>
+  {% for member in staff %}
+    <div class="card my-4" style="width: 18rem;">
+        <img src="{{ member.picture.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ member.name }}</h5>
+          <p class="card-text">{{ member.position }}</p>
+          <p class="card-text">Contact: <strong>{{ member.email }}</strong></p>
+        </div>
+    </div>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

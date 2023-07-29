@@ -1,0 +1,20 @@
+{% extends 'showroom/base.html' %}
+{% block title %} HK Vehicles {% endblock %} 
+{% block content %}
+<h1>HK Vehicles</h1>
+
+{% if brands %}
+<ul>
+  {% for brand in brands %}
+      <div class="card" style="width: 18rem;">
+        <img src="{{ brand.brand_pic.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ brand.name }}</h5>
+          <p class="card-text">{{ brand.occupation }}</p>
+          <a href="{% url 'showroom:brand_data' brand.id %}" class="btn btn-primary">Visit Brand</a>
+        </div>
+    </div>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
